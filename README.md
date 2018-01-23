@@ -11,10 +11,10 @@
 >ตัวอย่างไฟล์ .env เพื่อตั้งค่า Environment สำหรับใช้กับโปรเจคนี้ เพื่อเป็นความปลอดภัยที่จะไม่ให้ Username Password ต่างหลุดออกไปภายนอก
 
 ```bash
-MONGO_USER = <YOUR_MONGO_USER>
-MONGO_PASSWORD = <YOUR_MONGO_USER>
-MONGO_HOST = <YOUR_MONGO_HOST>
-PORT= <YOUR_PORT_SERVER>
+MONGO_USER=<YOUR_MONGO_USER>
+MONGO_PASSWORD=<YOUR_MONGO_USER>
+MONGO_HOST=<YOUR_MONGO_HOST>
+PORT=<YOUR_PORT_SERVER>
 ```
 
 ## Build Setup
