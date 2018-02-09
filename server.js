@@ -51,12 +51,12 @@ app.post('/todos', (request, response) => {
 app.put('/todos/:id', (request, response) => {
   const body = request.body
   const id = request.params.id
-  Todo.findById(id, function (err, todo) {
+  Todo.findById(id, (err, todo) => {
     if (err) {
       response.json(err)
     } else {
       todo.set(body)
-      todo.save(function (err, updatedTodo) {
+      todo.save((err, updatedTodo) => {
         if (err) {
           response.json(err)
         } else {
@@ -69,7 +69,7 @@ app.put('/todos/:id', (request, response) => {
 
 app.delete('/todos/:id', (request, response) => {
   const id = request.params.id
-  Todo.findById(id, function (err, todo) {
+  Todo.findById(id, (err, todo) => {
     if (err) {
       response.json(err)
     } else {
