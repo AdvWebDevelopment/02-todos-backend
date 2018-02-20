@@ -2,20 +2,20 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
+var jwt = require('express-jwt')
 
+const todos = require('./app/router/todos.js')
+const user = require('./app/router/user.js')
+const login = require('./app/router/login.js')
+
+app.use(jwt({ secret: process.env.JWT_SECRET }).unless({path: ['/login', '/signup']}))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-mongoose.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}`, { useMongoClient: true })
+app.use('/todos', todos)
+app.use('/', user)
+app.use('/login', login)
+
 const port = process.env.PORT || 9999
-const Todo = require('./app/models/todo')
-
-app.get('/todos', (request, response) => {
-  Todo.find().then(todos => {
-    response.json({todos})
-  })
-})
-
 app.listen(port)
 console.log('Server is running on port: ' + port)

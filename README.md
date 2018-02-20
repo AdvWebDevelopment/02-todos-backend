@@ -33,8 +33,9 @@ node server.js
 และหลังจากที่ทำ Issue ไหนเสร็จแล้วให้มากแก้ที่ ไฟล์นี้ ด้วย(README.md) 
 
 * [x] ตัวอย่าง ที่ทำเสร็จแล้ว
-* [ ] Challenge 1
-* [ ] Challenge 2
+* [x] Challenge 1
+* [x] Challenge 2
 * [ ] Challenge 3
+* [ ] Challenge 4
 
 ถ้ามีข้อสงสัยหรือติดปัญหาสามารถเปิด Issue ขึ้นมาใหม่ได้เลย
