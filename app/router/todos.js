@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const mongoose = require('mongoose')
+const jwt = require('jsonwebtoken')
 mongoose.connect(`mongodb://${process.env.MONGO_HOST}/todo`, { useMongoClient: true })
 const Todo = require('../models/todo.js')
 
@@ -12,7 +13,13 @@ router.get('/', (request, response) => {
 
 router.post('/', (request, response) => {
   const body = request.body
-  const todo = new Todo(body)
+  const token = request.headers.authorization.replace('Bearer ', '')
+  const decode = jwt.verify(token, process.env.JWT_SECRET)
+  const todo = new Todo({
+    description: body.description,
+    done: body.done,
+    user_id: decode.user_id
+  })
   todo.save((err, todo) => {
     if (err) {
       response.json(err)
