@@ -4,13 +4,13 @@ const mongoose = require('mongoose')
 mongoose.connect(`mongodb://${process.env.MONGO_HOST}/todo`, { useMongoClient: true })
 const Todo = require('../models/todo.js')
 
-router.get('/todos', (request, response) => {
+router.get('/', (request, response) => {
   Todo.find().then(todos => {
     response.json({todos})
   })
 })
 
-router.post('/todos', (request, response) => {
+router.post('/', (request, response) => {
   const body = request.body
   const todo = new Todo(body)
   todo.save((err, todo) => {
@@ -22,7 +22,7 @@ router.post('/todos', (request, response) => {
   })
 })
 
-router.put('/todos/:id', (request, response) => {
+router.put('/:id', (request, response) => {
   const body = request.body
   const id = request.params.id
   Todo.findById(id, (err, todo) => {
@@ -41,7 +41,7 @@ router.put('/todos/:id', (request, response) => {
   })
 })
 
-router.delete('/todos/:id', (request, response) => {
+router.delete('/:id', (request, response) => {
   const id = request.params.id
   Todo.findById(id, (err, todo) => {
     if (err) {
