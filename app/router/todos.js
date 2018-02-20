@@ -1,5 +1,5 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 const mongoose = require('mongoose')
 mongoose.connect(`mongodb://${process.env.MONGO_HOST}/todo`, { useMongoClient: true })
 const Todo = require('../models/todo.js')
