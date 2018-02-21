@@ -6,7 +6,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "mongoose": "^4.13.9",
-    "nodeman": "^1.1.2",
     "nodemon": "^1.14.11"
   },
   "devDependencies": {
